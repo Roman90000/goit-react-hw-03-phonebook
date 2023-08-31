@@ -1,12 +1,8 @@
-export const Contacts = props => {
+export const Contacts = () => {
   return (
     <div>
       <h1>Contacts</h1>
-      <ul>
-        {props.map(prop => (
-          <li>{prop}</li>
-        ))}
-      </ul>
+      <ul></ul>
     </div>
   );
 };

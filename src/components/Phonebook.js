@@ -8,7 +8,7 @@ const SignupSchema = Yup.object().shape({
     .max(30, 'Too Long!')
     .trim()
     .required('Required'),
-  tel: Yup.number()
+  number: Yup.number()
     .min(2, 'Too Short!')
     .positive('Must be positive')
     .required('Required'),
