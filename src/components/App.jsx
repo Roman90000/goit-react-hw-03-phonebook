@@ -16,7 +16,7 @@ export class App extends Component {
   };
 
   render() {
-    return <Phonebook onAdd={this.addState} />
-    <Contacts />
+    return <Phonebook onAdd={this.addState} />;
+    // <Contacts />
   }
 }
