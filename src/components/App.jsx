@@ -16,7 +16,11 @@ export class App extends Component {
   };
 
   render() {
-    return <Phonebook onAdd={this.addState} />;
-    // <Contacts />
+    return (
+      <div>
+        <Phonebook onAdd={this.addState} />
+        <Contacts contacts={this.state.contacts} />
+      </div>
+    );
   }
 }
