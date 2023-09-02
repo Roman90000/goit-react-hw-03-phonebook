@@ -1,15 +1,15 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { FormikBox } from './Phonebook.styled';
+import { FormikBox, FormEl } from './Phonebook.styled';
 import * as Yup from 'yup';
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string()
-    .min(2, 'Too Short!')
+    .min(5, 'Too Short!')
     .max(30, 'Too Long!')
     .trim()
     .required('Required'),
   number: Yup.number()
-    .min(2, 'Too Short!')
+    .min(5, 'Too Short!')
     .positive('Must be positive')
     .required('Required'),
 });
@@ -30,17 +30,17 @@ export const Phonebook = ({ onAdd }) => {
         }}
       >
         <Form>
-          <label>
+          <FormEl>
             Name
             <Field name="name" type="text" />
             <ErrorMessage name="name" />
-          </label>
+          </FormEl>
 
-          <label>
+          <FormEl>
             Number
             <Field name="number" type="tel" />
             <ErrorMessage name="number" />
-          </label>
+          </FormEl>
           <button type="submit">Add contact</button>
         </Form>
       </Formik>
