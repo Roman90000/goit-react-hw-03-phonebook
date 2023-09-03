@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { FormikBox, FormEl } from './Forma.styled';
+import { FormikBox, FormEl } from './Form.styled';
 import * as Yup from 'yup';
 
 const SignupSchema = Yup.object().shape({

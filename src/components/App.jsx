@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import { Forma } from './Forma/Forma.js';
 import { nanoid } from 'nanoid';
 import { Contacts } from './Contacts/Contacts';
 import { Filter } from './Filter/Filter.js';
+import { Forma } from './Form/Form.js';
 
 export class App extends Component {
   state = {
@@ -26,7 +26,6 @@ export class App extends Component {
       alert(`Is already in contacts`);
       return;
     }
-    console.log(contact);
 
     this.setState(prevState => ({
       contacts: [...prevState.contacts, { id: nanoid(), name, number }],
@@ -55,11 +54,7 @@ export class App extends Component {
     return (
       <div>
         <Forma onAdd={this.addState} />
-        <Filter
-          filter={visibleContacts}
-          onFilterName={this.nameFilter}
-          onFindContact={this.getFilteredContacts}
-        />
+        <Filter filter={visibleContacts} onFilterName={this.nameFilter} />
         <Contacts
           onContactsDelete={this.deleteContacts}
           contacts={visibleContacts}
