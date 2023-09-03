@@ -6,6 +6,7 @@ import {
   Title,
   ItemName,
 } from './Contacts.styled';
+import PropTypes from 'prop-types';
 
 export const Contacts = ({ contacts, onContactsDelete }) => {
   return (
@@ -29,4 +30,15 @@ export const Contacts = ({ contacts, onContactsDelete }) => {
       </List>
     </Container>
   );
+};
+
+Contacts.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  onContactsDelete: PropTypes.func.isRequired,
 };

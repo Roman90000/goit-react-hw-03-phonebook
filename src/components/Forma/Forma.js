@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { FormikBox, FormEl } from './Phonebook.styled';
+import { FormikBox, FormEl } from './Forma.styled';
 import * as Yup from 'yup';
 
 const SignupSchema = Yup.object().shape({
@@ -14,7 +14,7 @@ const SignupSchema = Yup.object().shape({
     .required('Required'),
 });
 
-export const Phonebook = ({ onAdd }) => {
+export const Forma = ({ onAdd }) => {
   return (
     <FormikBox>
       <h1>Phonebook</h1>

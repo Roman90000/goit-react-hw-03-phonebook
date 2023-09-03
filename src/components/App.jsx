@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import { Phonebook } from './Phonebook/Phonebook';
+import { Forma } from './Forma/Forma.js';
 import { nanoid } from 'nanoid';
 import { Contacts } from './Contacts/Contacts';
-import { FindContact } from './FindContact/FindContact';
+import { Filter } from './Filter/Filter.js';
 
 export class App extends Component {
   state = {
@@ -12,12 +12,24 @@ export class App extends Component {
       { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
-    filter: 'Annie Copeland',
+    filter: '',
   };
 
-  addState = newContact => {
+  addState = ({ name, number }) => {
+    const contact = this.state.contacts.find(
+      contacts =>
+        contacts.name.toLowerCase() === name.toLowerCase() ||
+        contacts.number === number
+    );
+
+    if (contact) {
+      alert(`Is already in contacts`);
+      return;
+    }
+    console.log(contact);
+
     this.setState(prevState => ({
-      contacts: [...prevState.contacts, { id: nanoid(), ...newContact }],
+      contacts: [...prevState.contacts, { id: nanoid(), name, number }],
     }));
   };
 
@@ -42,15 +54,15 @@ export class App extends Component {
     const visibleContacts = this.getFilteredContacts();
     return (
       <div>
-        <Phonebook onAdd={this.addState} />
-        <FindContact
+        <Forma onAdd={this.addState} />
+        <Filter
           filter={visibleContacts}
           onFilterName={this.nameFilter}
           onFindContact={this.getFilteredContacts}
         />
         <Contacts
           onContactsDelete={this.deleteContacts}
-          contacts={this.state.contacts}
+          contacts={visibleContacts}
         />
       </div>
     );
