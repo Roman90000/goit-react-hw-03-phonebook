@@ -15,6 +15,12 @@ export class App extends Component {
     filter: '',
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
   addState = ({ name, number }) => {
     const contact = this.state.contacts.find(
       contacts =>
