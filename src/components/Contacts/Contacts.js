@@ -28,6 +28,7 @@ export const Contacts = ({ contacts, onContactsDelete }) => {
           </ListItem>
         ))}
       </List>
+      ;
     </Container>
   );
 };
